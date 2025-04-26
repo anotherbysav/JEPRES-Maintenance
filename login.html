@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login - JEPRES</title>
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="login-centered.css" />
+  </head>
+  <body>
+    <div class="card-container">
+      <header class="card-header">
+        <h1>JEPRES Login</h1>
+      </header>
+      <form id="login-form" autocomplete="off" novalidate>
+        <div class="button-group">
+          <button type="button" id="login-button" class="active">Masuk</button>
+          <button type="button" id="register-button">Daftar</button>
+        </div>
+        <div class="input-group">
+          <input type="text" id="login-username" required />
+          <label for="login-username">Nama pengguna atau Email</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Kata sandi</label>
+        </div>
+        <button type="submit">Masuk</button>
+        <div class="form-footer">
+          <a href="#">Lupa kata sandi?</a>
+        </div>
+      </form>
+
+      <form
+        id="register-form"
+        autocomplete="off"
+        novalidate
+        style="display: none"
+      >
+        <div class="button-group">
+          <button type="button" id="login-button-2">Masuk</button>
+          <button type="button" id="register-button-2" class="active">
+            Daftar
+          </button>
+        </div>
+        <div class="input-group">
+          <input type="text" id="register-username" required />
+          <label for="register-username">Nama pengguna</label>
+        </div>
+        <div class="input-group">
+          <input type="email" id="register-email" required />
+          <label for="register-email">Email</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="register-password" required />
+          <label for="register-password">Kata sandi</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="register-password-confirm" required />
+          <label for="register-password-confirm">Konfirmasi kata sandi</label>
+        </div>
+        <button type="submit">Daftar</button>
+      </form>
+    </div>
+
+    <script src="login.js"></script>
+  </body>
+</html>

@@ -1,0 +1,186 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(270deg, #121212, #2a2a2a, #121212);
+  background-size: 600% 600%;
+  animation: gradientShift 20s ease infinite;
+  color: #e0e0e0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  width: 100%;
+  color: #66b2b2;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.input-group input {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  background: #111;
+  color: #e0e0e0;
+  box-sizing: border-box;
+}
+
+.input-group label {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  background-color: transparent;
+  padding: 0;
+  z-index: 1;
+}
+
+.input-group input:focus + label,
+.input-group input.filled + label {
+  top: -0.5rem; /* move label higher */
+  font-size: 0.75rem;
+  color: #66b2b2;
+  transform: translateY(0);
+  background-color: #111; /* add background to cover border break */
+  padding: 0 0.25rem; /* small horizontal padding */
+  pointer-events: none;
+}
+
+button {
+  background: #66b2b2;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #004d4d;
+  cursor: pointer;
+  transition: background 0.3s ease, opacity 0.5s ease;
+}
+
+button:hover {
+  background: #559999;
+}
+
+form > button[type="submit"]:hover,
+form > button[type="submit"]:focus {
+  color: #fff;
+  box-shadow: 0 0 10px #aadddd, 0 0 20px #aadddd, 0 0 40px #aadddd,
+    0 0 80px #aadddd;
+  outline: none;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.button-group button {
+  flex: 1;
+  padding: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 2px solid #66b2b2;
+  background: transparent;
+  color: #66b2b2;
+  transition: background 0.3s ease, opacity 0.5s ease, box-shadow 0.3s ease;
+}
+
+.button-group button:hover {
+  background: #559999;
+  box-shadow: 0 0 16px #66b2b2, 0 0 32px #66b2b2, 0 0 48px #66b2b2,
+    0 0 64px #66b2b2;
+}
+
+.button-group button:focus {
+  outline: none;
+  box-shadow: 0 0 24px #66b2b2, 0 0 48px #66b2b2, 0 0 72px #66b2b2;
+}
+
+.button-group button.active {
+  background: #66b2b2;
+  color: #004d4d;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade out animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+form {
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+.form-footer {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.form-footer a {
+  color: #0ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: border-bottom 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.form-footer a:hover,
+.form-footer a:focus {
+  border-bottom: 2px solid #0ff;
+  outline: none;
+  /* Removed neon box-shadow effect */
+  /* box-shadow: 0 0 12px #0ff, 0 0 24px #0ff, 0 0 36px #0ff; */
+}

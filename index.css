@@ -1,0 +1,296 @@
+/* Elegant black background with animated gradient */
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(270deg, #121212, #2a2a2a, #121212);
+  background-size: 600% 600%;
+  animation: gradientShift 20s ease infinite;
+  color: #e0e0e0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Subtle noise texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="none"><rect width="100" height="100" fill="%23000"/><circle cx="50" cy="50" r="1" fill="%23222222" fill-opacity="0.1"/></svg>');
+  opacity: 0.15;
+  z-index: 0;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Floating stars container */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Individual star style using CSS clip-path for star shape */
+.star {
+  position: absolute;
+  background: white;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  opacity: 0.8;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* Star animations */
+@keyframes floatUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 0.4;
+  }
+}
+
+@keyframes floatSideways {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(20px);
+    opacity: 0.4;
+  }
+}
+
+/* Different stars with different sizes, positions, and animations */
+.star1 {
+  width: 6px;
+  height: 6px;
+  top: 10%;
+  left: 5%;
+  animation: floatUpDown 6s infinite;
+}
+.star2 {
+  width: 4px;
+  height: 4px;
+  top: 20%;
+  left: 15%;
+  animation: floatSideways 8s infinite;
+}
+.star3 {
+  width: 5px;
+  height: 5px;
+  top: 30%;
+  left: 25%;
+  animation: floatUpDown 7s infinite;
+}
+.star4 {
+  width: 3px;
+  height: 3px;
+  top: 40%;
+  left: 35%;
+  animation: floatSideways 5s infinite;
+}
+.star5 {
+  width: 7px;
+  height: 7px;
+  top: 50%;
+  left: 45%;
+  animation: floatUpDown 9s infinite;
+}
+.star6 {
+  width: 5px;
+  height: 5px;
+  top: 60%;
+  left: 55%;
+  animation: floatSideways 6s infinite;
+}
+.star7 {
+  width: 4px;
+  height: 4px;
+  top: 70%;
+  left: 65%;
+  animation: floatUpDown 8s infinite;
+}
+.star8 {
+  width: 6px;
+  height: 6px;
+  top: 80%;
+  left: 75%;
+  animation: floatSideways 7s infinite;
+}
+.star9 {
+  width: 3px;
+  height: 3px;
+  top: 90%;
+  left: 85%;
+  animation: floatUpDown 5s infinite;
+}
+.star10 {
+  width: 5px;
+  height: 5px;
+  top: 15%;
+  left: 80%;
+  animation: floatSideways 9s infinite;
+}
+.star11 {
+  width: 4px;
+  height: 4px;
+  top: 25%;
+  left: 70%;
+  animation: floatUpDown 6s infinite;
+}
+.star12 {
+  width: 6px;
+  height: 6px;
+  top: 35%;
+  left: 60%;
+  animation: floatSideways 8s infinite;
+}
+.star13 {
+  width: 3px;
+  height: 3px;
+  top: 45%;
+  left: 50%;
+  animation: floatUpDown 7s infinite;
+}
+.star14 {
+  width: 5px;
+  height: 5px;
+  top: 55%;
+  left: 40%;
+  animation: floatSideways 5s infinite;
+}
+.star15 {
+  width: 4px;
+  height: 4px;
+  top: 65%;
+  left: 30%;
+  animation: floatUpDown 9s infinite;
+}
+.star16 {
+  width: 6px;
+  height: 6px;
+  top: 75%;
+  left: 20%;
+  animation: floatSideways 6s infinite;
+}
+.star17 {
+  width: 3px;
+  height: 3px;
+  top: 85%;
+  left: 10%;
+  animation: floatUpDown 8s infinite;
+}
+.star18 {
+  width: 5px;
+  height: 5px;
+  top: 95%;
+  left: 0%;
+  animation: floatSideways 7s infinite;
+}
+.star19 {
+  width: 4px;
+  height: 4px;
+  top: 5%;
+  left: 90%;
+  animation: floatUpDown 5s infinite;
+}
+.star20 {
+  width: 6px;
+  height: 6px;
+  top: 15%;
+  left: 95%;
+  animation: floatSideways 9s infinite;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px #444;
+}
+
+p {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  color: #bbb;
+}
+
+/* Button styles */
+#mulai-button {
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #66b2b2;
+  background: transparent;
+  border: 2px solid #66b2b2;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  user-select: none;
+  box-shadow: 0 0 10px #66b2b288;
+  outline: none;
+}
+
+#mulai-button:hover {
+  color: #66b2b2;
+  box-shadow: 0 0 10px #66b2b2, 0 0 20px #66b2b2, 0 0 30px #66b2b2, 0 0 40px #66b2b2;
+}
+
+#mulai-button:focus {
+  outline: none;
+  box-shadow: 0 0 15px #66b2b2, 0 0 30px #66b2b2, 0 0 45px #66b2b2, 0 0 60px #66b2b2;
+}
+
+#mulai-button.active {
+  color: #66b2b2;
+  box-shadow: 0 0 20px #66b2b2, 0 0 40px #66b2b2, 0 0 60px #66b2b2, 0 0 80px #66b2b2;
+  transition: none;
+}

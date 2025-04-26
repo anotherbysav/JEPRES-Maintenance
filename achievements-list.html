@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daftar Prestasi</title>
+  <link rel="stylesheet" href="login-centered.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      color: white;
+      margin: 0;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #f0f8ff;
+      text-shadow: 0 0 5px #a0c8ff;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(0, 0, 30, 0.85);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    th, td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #555;
+      text-align: left;
+      white-space: normal;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    th {
+      background-color: #0f1626;
+    }
+    tr:hover {
+      background-color: rgba(102, 170, 255, 0.2);
+    }
+    button.delete-button {
+      background-color: #ff4d4d;
+      border: none;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+    }
+    button.delete-button:hover {
+      background-color: #ff1a1a;
+    }
+    .back-button {
+      margin-top: 1.5rem;
+      display: block;
+      width: 150px;
+      padding: 0.75rem;
+      text-align: center;
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      text-decoration: none;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: none;
+      transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+    .back-button:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px white, 0 0 40px white;
+    }
+  </style>
+</head>
+<body>
+  <h2>Daftar Prestasi</h2>
+  <table id="achievements-table">
+    <thead>
+      <tr>
+        <th>Judul</th>
+        <th>Deskripsi</th>
+        <th>Tanggal</th>
+        <th>Tingkat</th>
+        <th>Sertifikat</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Data will be inserted here -->
+    </tbody>
+  </table>
+  <a href="achievements.html" class="back-button">Kembali</a>
+
+  <script>
+    function loadAchievements() {
+      const achievements = JSON.parse(localStorage.getItem("achievements")) || [];
+      const tbody = document.querySelector("#achievements-table tbody");
+      tbody.innerHTML = "";
+
+      if (achievements.length === 0) {
+        const tr = document.createElement("tr");
+        const td = document.createElement("td");
+        td.colSpan = 6;
+        td.style.textAlign = "center";
+        td.textContent = "Belum ada data prestasi yang tersimpan.";
+        tr.appendChild(td);
+        tbody.appendChild(tr);
+        return;
+      }
+
+      achievements.forEach((achievement) => {
+        const tr = document.createElement("tr");
+
+        const titleTd = document.createElement("td");
+        titleTd.textContent = achievement.title;
+        tr.appendChild(titleTd);
+
+        const descTd = document.createElement("td");
+        descTd.textContent = achievement.description;
+        tr.appendChild(descTd);
+
+        const dateTd = document.createElement("td");
+        dateTd.textContent = achievement.date;
+        tr.appendChild(dateTd);
+
+        const levelTd = document.createElement("td");
+        levelTd.textContent = achievement.level;
+        tr.appendChild(levelTd);
+
+        const certTd = document.createElement("td");
+        certTd.textContent = achievement.certificate;
+        tr.appendChild(certTd);
+
+        const actionTd = document.createElement("td");
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Hapus";
+        deleteBtn.className = "delete-button";
+        deleteBtn.addEventListener("click", () => {
+          if (confirm("Yakin ingin menghapus data prestasi ini?")) {
+            deleteAchievement(achievement.id);
+          }
+        });
+        actionTd.appendChild(deleteBtn);
+        tr.appendChild(actionTd);
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    function deleteAchievement(id) {
+      let achievements = JSON.parse(localStorage.getItem("achievements")) || [];
+      achievements = achievements.filter((achievement) => achievement.id !== id);
+      localStorage.setItem("achievements", JSON.stringify(achievements));
+      loadAchievements();
+    }
+
+    document.addEventListener("DOMContentLoaded", loadAchievements);
+  </script>
+</body>
+</html>
